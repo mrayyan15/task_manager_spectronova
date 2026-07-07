@@ -467,7 +467,34 @@ function closeModal(): void {
               class="page__btn page__btn--primary"
               @click="showDesignOnly('Invite Member')"
             >
-              + Invite Member
+              <svg
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="5.5"
+                  cy="4.75"
+                  r="2.25"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.25"
+                />
+                <path
+                  d="M2 13v-.25c0-1.9 1.6-3.25 3.5-3.25s3.5 1.35 3.5 3.25"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.25"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M11.5 5.25v2.5M10.25 6.5h2.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.25"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Invite Member
             </button>
             <button
               type="button"
@@ -477,15 +504,29 @@ function closeModal(): void {
               <svg
                 viewBox="0 0 16 16"
                 aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <path
-                  d="M8 2v8M5 6l3-3 3 3M3 12h10"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.25"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                <circle
+                  cx="4"
+                  cy="8"
+                  r="1.75"
                 />
+                <circle
+                  cx="12"
+                  cy="3.5"
+                  r="1.75"
+                />
+                <circle
+                  cx="12"
+                  cy="12.5"
+                  r="1.75"
+                />
+                <path d="M5.65 7.15 10.35 4.65" />
+                <path d="M5.65 8.85 10.35 11.35" />
               </svg>
               Share
             </button>
@@ -1254,7 +1295,7 @@ function closeModal(): void {
   padding: var(--space-2) var(--space-4);
   border-radius: 8px;
   font-size: var(--font-size-card-body);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   border: 1px solid transparent;
   white-space: nowrap;
