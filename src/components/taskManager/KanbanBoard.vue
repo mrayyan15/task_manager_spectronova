@@ -75,6 +75,8 @@ function confirmAddColumn(title: string): void {
 <style scoped>
 .kanban-board-scroll {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   background-color: var(--color-board-bg);
@@ -99,7 +101,7 @@ function confirmAddColumn(title: string): void {
   align-items: flex-start;
   gap: var(--space-4);
   width: 100%;
-  min-width: min-content;
+  min-width: 0;
 }
 
 .kanban-board__add-column {

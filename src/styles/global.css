@@ -78,6 +78,15 @@
 
 html,
 body {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
+  max-width: 100%;
   height: 100%;
   overflow: hidden;
 }
@@ -114,12 +123,10 @@ textarea {
   margin: 0;
 }
 
-/* Column heading — 13px / 0.8125rem, weight 600, uppercase, letter-spaced */
+/* Column heading — 13px / 0.8125rem, weight 600 */
 .column-heading {
   font-size: var(--font-size-column-heading);
   font-weight: var(--font-weight-column-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   line-height: 1.4;
   margin: 0;
 }

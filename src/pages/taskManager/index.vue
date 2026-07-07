@@ -248,8 +248,6 @@ function closeModal(): void {
         </button>
       </div>
 
-      <hr class="sidebar__divider">
-
       <nav
         class="sidebar__section"
         aria-label="Menu"
@@ -342,7 +340,7 @@ function closeModal(): void {
               aria-hidden="true"
             >
               <path
-                d="M10 3 5 8l5 5"
+                d="M12 8H5M8 5 5 8 8 11"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="1.5"
@@ -352,7 +350,21 @@ function closeModal(): void {
             </svg>
           </button>
           <span class="meta-label topbar__crumb">Team spaces</span>
-          <span class="topbar__sep">›</span>
+          <span
+            class="topbar__sep"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 16 16">
+              <path
+                d="M6 3l5 5-5 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
           <span class="topbar__crumb-current">Tasks</span>
         </div>
 
@@ -385,8 +397,15 @@ function closeModal(): void {
               placeholder="Search"
               aria-label="Search"
             >
-            <kbd class="topbar__kbd">⌘F</kbd>
+            <kbd class="topbar__kbd">
+              <span class="topbar__kbd-symbol" aria-hidden="true">⌘</span>
+              <span class="topbar__kbd-letter">F</span>
+            </kbd>
           </div>
+          <span
+            class="topbar__actions-divider"
+            aria-hidden="true"
+          />
           <button
             type="button"
             class="topbar__icon-btn"
@@ -750,6 +769,8 @@ function closeModal(): void {
 <style scoped>
 .app-layout {
   display: flex;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   overflow: hidden;
   background: var(--color-page-bg);
@@ -810,7 +831,7 @@ function closeModal(): void {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.3;
-  color: #1f2937;
+  color: #374151;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -820,7 +841,7 @@ function closeModal(): void {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.3;
-  color: #9ca3af;
+  color: var(--color-text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -945,6 +966,11 @@ function closeModal(): void {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.sidebar__link--active svg {
+  color: #604d9a;
 }
 
 .sidebar__link:hover {
@@ -958,21 +984,27 @@ function closeModal(): void {
 }
 
 .sidebar__link--active {
-  background: #eef2ff;
-  border-color: transparent;
-  color: #4f46e5;
+  background: #ffffff;
+  border-color: #e5e7eb;
+  color: #374151;
   font-weight: 500;
+}
+
+.sidebar__link--active:hover {
+  background: #ffffff;
+  color: #374151;
 }
 
 .sidebar__link--active::before {
   content: '';
   position: absolute;
-  left: -1px;
-  top: 6px;
-  bottom: 6px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 3px;
+  height: 20px;
   border-radius: 0 2px 2px 0;
-  background: #4338ca;
+  background: #604d9a;
 }
 
 /* Main */
@@ -991,6 +1023,8 @@ function closeModal(): void {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
+  min-width: 0;
+  flex-shrink: 0;
   padding: var(--space-3) var(--space-6);
   border-bottom: 1px solid var(--color-border);
 }
@@ -999,6 +1033,9 @@ function closeModal(): void {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .topbar__back {
@@ -1011,13 +1048,13 @@ function closeModal(): void {
   border: none;
   border-radius: 6px;
   background: transparent;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   cursor: pointer;
 }
 
 .topbar__back svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 .topbar__crumb {
@@ -1025,8 +1062,16 @@ function closeModal(): void {
 }
 
 .topbar__sep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   color: var(--color-text-muted);
-  font-size: var(--font-size-card-body);
+}
+
+.topbar__sep svg {
+  width: 16px;
+  height: 16px;
 }
 
 .topbar__crumb-current {
@@ -1039,6 +1084,15 @@ function closeModal(): void {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.topbar__actions-divider {
+  width: 1px;
+  height: 24px;
+  flex-shrink: 0;
+  background: var(--color-border);
+  margin: 0 var(--space-1);
 }
 
 .topbar__search {
@@ -1049,7 +1103,9 @@ function closeModal(): void {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   background: #fff;
-  min-width: 220px;
+  min-width: 0;
+  flex: 1 1 160px;
+  max-width: 280px;
 }
 
 .topbar__search-icon {
@@ -1074,13 +1130,27 @@ function closeModal(): void {
 }
 
 .topbar__kbd {
-  padding: var(--space-1) var(--space-2);
-  border-radius: 4px;
-  background: #f3f4f6;
-  border: 1px solid var(--color-border);
-  font-size: 10px;
-  color: var(--color-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #d1d5db;
   font-family: inherit;
+  line-height: 1;
+}
+
+.topbar__kbd-symbol {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.topbar__kbd-letter {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
 }
 
 .topbar__icon-btn {
@@ -1117,7 +1187,9 @@ function closeModal(): void {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-4);
+  min-width: 0;
   margin-bottom: var(--space-5);
 }
 
@@ -1205,7 +1277,9 @@ function closeModal(): void {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-4);
+  min-width: 0;
   margin-bottom: var(--space-4);
   border-bottom: 1px solid var(--color-border);
 }
