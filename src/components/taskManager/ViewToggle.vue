@@ -152,6 +152,8 @@ function selectView(view: ViewMode): void {
   cursor: pointer;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
+  position: relative;
+  z-index: 0;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
@@ -169,5 +171,6 @@ function selectView(view: ViewMode): void {
   color: var(--color-primary);
   font-weight: 600;
   border-bottom-color: var(--color-primary);
+  z-index: 1;
 }
 </style>

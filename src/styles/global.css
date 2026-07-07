@@ -30,7 +30,7 @@
   --color-sidebar-bg: #f9fafb;
   --color-page-bg: #ffffff;
   --color-board-bg: #f8f9fb;
-  --color-column-bg: #f3f4f6;
+  --color-column-bg: var(--color-sidebar-bg);
   --color-border: #e5e7eb;
   --color-text: #111827;
   --color-text-secondary: #6b7280;

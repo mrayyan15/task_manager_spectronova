@@ -1328,7 +1328,7 @@ function closeModal(): void {
 
 .page__tabs-row {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-4);
@@ -1356,6 +1356,8 @@ function closeModal(): void {
   cursor: pointer;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
+  position: relative;
+  z-index: 0;
 }
 
 .page__tab-icon {
