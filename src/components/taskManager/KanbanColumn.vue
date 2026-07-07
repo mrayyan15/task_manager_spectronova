@@ -315,13 +315,16 @@ function showColumnOptions(): void {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 24px;
+  width: 24px;
   height: 24px;
-  padding: 0 var(--space-1);
+  padding: 0;
   border-radius: 50%;
   background-color: var(--column-count-bg);
   color: var(--column-count-text);
+  font-size: var(--font-size-badge);
+  font-weight: var(--font-weight-badge);
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .kanban-column__actions {

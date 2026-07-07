@@ -61,8 +61,8 @@
   --priority-low-text: #2563eb;
 
   /* Kanban column count badge */
-  --column-count-bg: #eff6ff;
-  --column-count-text: #2563eb;
+  --column-count-bg: #2563eb;
+  --column-count-text: #ffffff;
 
   /* Status / semantic colors */
   --color-overdue: #dc2626;

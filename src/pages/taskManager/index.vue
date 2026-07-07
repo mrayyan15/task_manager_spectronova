@@ -487,13 +487,6 @@ function closeModal(): void {
               </svg>
               Share
             </button>
-            <button
-              type="button"
-              class="page__btn page__btn--primary"
-              @click="openCreateModal()"
-            >
-              + New Task
-            </button>
           </div>
         </div>
 
