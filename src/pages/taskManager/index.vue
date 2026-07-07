@@ -1327,10 +1327,9 @@ function closeModal(): void {
 }
 
 .page__tabs-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
   gap: var(--space-4);
   min-width: 0;
   margin-bottom: var(--space-4);
@@ -1342,7 +1341,12 @@ function closeModal(): void {
   align-items: flex-end;
   gap: var(--space-1);
   min-width: 0;
-  flex: 1 1 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.page__tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .page__tab {
@@ -1461,19 +1465,6 @@ function closeModal(): void {
 
   .page__header-right {
     flex-wrap: wrap;
-  }
-
-  .page__tabs-row {
-    flex-wrap: wrap;
-    align-items: flex-end;
-  }
-
-  .page__tabs {
-    flex: 1 1 100%;
-  }
-
-  .page__toolbar {
-    margin-bottom: 0;
   }
 
   .topbar__search {
