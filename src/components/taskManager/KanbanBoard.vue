@@ -63,9 +63,6 @@ function onAddColumn(): void {
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  background-color: var(--color-board-bg);
-  border-radius: 12px;
-  padding: var(--space-4);
   scrollbar-width: thin;
   scrollbar-color: #d1d5db transparent;
 }
