@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import type { Task, TaskStatus } from '../../BLL/taskManager/types';
 import { TaskManager } from '../../BLL/taskManager/TaskManager';
-import AddColumnModal from './AddColumnModal.vue';
+import { openDesignOnlyNotice } from '../../utils/designOnlyNotice';
 import KanbanColumn from './KanbanColumn.vue';
 
 const props = defineProps<{
@@ -15,23 +15,13 @@ const emit = defineEmits<{
 }>();
 
 const columns = computed(() => props.manager.state.columns);
-const isAddColumnOpen = ref(false);
 
 function onAddTask(status: TaskStatus): void {
   emit('add-task', status);
 }
 
 function onAddColumn(): void {
-  isAddColumnOpen.value = true;
-}
-
-function closeAddColumn(): void {
-  isAddColumnOpen.value = false;
-}
-
-function confirmAddColumn(title: string): void {
-  props.manager.addColumn(title);
-  isAddColumnOpen.value = false;
+  openDesignOnlyNotice('Add column');
 }
 </script>
 
@@ -64,12 +54,6 @@ function confirmAddColumn(title: string): void {
       </button>
     </div>
   </div>
-
-  <AddColumnModal
-    :is-open="isAddColumnOpen"
-    @close="closeAddColumn"
-    @confirm="confirmAddColumn"
-  />
 </template>
 
 <style scoped>
