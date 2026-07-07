@@ -63,6 +63,8 @@
   /* Kanban column count badge */
   --column-count-bg: #2563eb;
   --column-count-text: #ffffff;
+  --column-count-size: 16px;
+  --font-size-column-count: 0.5625rem; /* 9px */
 
   /* Status / semantic colors */
   --color-overdue: #dc2626;

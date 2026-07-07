@@ -315,13 +315,13 @@ function showColumnOptions(): void {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: var(--column-count-size);
+  height: var(--column-count-size);
   padding: 0;
   border-radius: 50%;
   background-color: var(--column-count-bg);
   color: var(--column-count-text);
-  font-size: var(--font-size-badge);
+  font-size: var(--font-size-column-count);
   font-weight: var(--font-weight-badge);
   line-height: 1;
   flex-shrink: 0;
