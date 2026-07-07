@@ -202,10 +202,7 @@ function closeModal(): void {
 
 <template>
   <div class="app-layout">
-    <aside
-      class="sidebar"
-      aria-label="Main navigation"
-    >
+    <div class="sidebar-header">
       <div class="sidebar__profile-card">
         <AssigneeAvatar
           :assignee="currentUser.name"
@@ -247,7 +244,12 @@ function closeModal(): void {
           </svg>
         </button>
       </div>
+    </div>
 
+    <aside
+      class="sidebar"
+      aria-label="Main navigation"
+    >
       <nav
         class="sidebar__section"
         aria-label="Menu"
@@ -326,113 +328,113 @@ function closeModal(): void {
       </nav>
     </aside>
 
+    <header class="topbar">
+      <div class="topbar__breadcrumbs">
+        <button
+          type="button"
+          class="topbar__back"
+          aria-label="Go back"
+          @click="showDesignOnly('Back navigation')"
+        >
+          <svg
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 8H5M8 5 5 8 8 11"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <span class="meta-label topbar__crumb">Team spaces</span>
+        <span
+          class="topbar__sep"
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 16 16">
+            <path
+              d="M6 3l5 5-5 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <span class="topbar__crumb-current">Tasks</span>
+      </div>
+
+      <div class="topbar__actions">
+        <div class="topbar__search">
+          <svg
+            class="topbar__search-icon"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+          >
+            <circle
+              cx="7"
+              cy="7"
+              r="4.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.25"
+            />
+            <path
+              d="M10.5 10.5 14 14"
+              stroke="currentColor"
+              stroke-width="1.25"
+              stroke-linecap="round"
+            />
+          </svg>
+          <input
+            v-model="searchQuery"
+            type="search"
+            class="topbar__search-input"
+            placeholder="Search"
+            aria-label="Search"
+          >
+          <kbd class="topbar__kbd">
+            <span class="topbar__kbd-symbol" aria-hidden="true">⌘</span>
+            <span class="topbar__kbd-letter">F</span>
+          </kbd>
+        </div>
+        <span
+          class="topbar__actions-divider"
+          aria-hidden="true"
+        />
+        <button
+          type="button"
+          class="topbar__icon-btn"
+          aria-label="Help"
+          @click="showDesignOnly('Help')"
+        >
+          ?
+        </button>
+        <button
+          type="button"
+          class="topbar__icon-btn"
+          aria-label="Notifications"
+          @click="showDesignOnly('Notifications')"
+        >
+          <svg
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+          >
+            <path
+              d="M8 2a4 4 0 0 0-4 4v2.5L3 10.5h10l-1-2V6a4 4 0 0 0-4-4zm0 11a1.5 1.5 0 0 0 1.5-1.5H6.5A1.5 1.5 0 0 0 8 13z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
     <div class="main">
-      <header class="topbar">
-        <div class="topbar__breadcrumbs">
-          <button
-            type="button"
-            class="topbar__back"
-            aria-label="Go back"
-            @click="showDesignOnly('Back navigation')"
-          >
-            <svg
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 8H5M8 5 5 8 8 11"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-          <span class="meta-label topbar__crumb">Team spaces</span>
-          <span
-            class="topbar__sep"
-            aria-hidden="true"
-          >
-            <svg viewBox="0 0 16 16">
-              <path
-                d="M6 3l5 5-5 5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
-          <span class="topbar__crumb-current">Tasks</span>
-        </div>
-
-        <div class="topbar__actions">
-          <div class="topbar__search">
-            <svg
-              class="topbar__search-icon"
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-            >
-              <circle
-                cx="7"
-                cy="7"
-                r="4.5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.25"
-              />
-              <path
-                d="M10.5 10.5 14 14"
-                stroke="currentColor"
-                stroke-width="1.25"
-                stroke-linecap="round"
-              />
-            </svg>
-            <input
-              v-model="searchQuery"
-              type="search"
-              class="topbar__search-input"
-              placeholder="Search"
-              aria-label="Search"
-            >
-            <kbd class="topbar__kbd">
-              <span class="topbar__kbd-symbol" aria-hidden="true">⌘</span>
-              <span class="topbar__kbd-letter">F</span>
-            </kbd>
-          </div>
-          <span
-            class="topbar__actions-divider"
-            aria-hidden="true"
-          />
-          <button
-            type="button"
-            class="topbar__icon-btn"
-            aria-label="Help"
-            @click="showDesignOnly('Help')"
-          >
-            ?
-          </button>
-          <button
-            type="button"
-            class="topbar__icon-btn"
-            aria-label="Notifications"
-            @click="showDesignOnly('Notifications')"
-          >
-            <svg
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-            >
-              <path
-                d="M8 2a4 4 0 0 0-4 4v2.5L3 10.5h10l-1-2V6a4 4 0 0 0-4-4zm0 11a1.5 1.5 0 0 0 1.5-1.5H6.5A1.5 1.5 0 0 0 8 13z"
-                fill="currentColor"
-              />
-            </svg>
-          </button>
-        </div>
-      </header>
-
       <div class="page">
         <div class="page__header">
           <div class="page__header-left">
@@ -761,7 +763,12 @@ function closeModal(): void {
 
 <style scoped>
 .app-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    'sidebar-header topbar'
+    'sidebar main';
   width: 100%;
   max-width: 100%;
   height: 100vh;
@@ -769,14 +776,22 @@ function closeModal(): void {
   background: var(--color-page-bg);
 }
 
+.sidebar-header {
+  grid-area: sidebar-header;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: var(--space-4) var(--space-4) 0;
+  background: var(--color-sidebar-bg);
+  border-right: 1px solid #e5e7eb;
+}
+
 /* Sidebar */
 .sidebar {
-  flex-shrink: 0;
-  width: var(--sidebar-width);
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
+  grid-area: sidebar;
+  min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   padding: var(--space-4) var(--space-4) var(--space-6);
@@ -1002,7 +1017,7 @@ function closeModal(): void {
 
 /* Main */
 .main {
-  flex: 1;
+  grid-area: main;
   min-width: 0;
   min-height: 0;
   display: flex;
@@ -1012,11 +1027,14 @@ function closeModal(): void {
 }
 
 .topbar {
+  grid-area: topbar;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
   min-width: 0;
+  align-self: stretch;
+  box-sizing: border-box;
   flex-shrink: 0;
   padding: var(--space-3) var(--space-6);
   border-bottom: 1px solid var(--color-border);
@@ -1077,7 +1095,8 @@ function closeModal(): void {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  flex-shrink: 0;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .topbar__actions-divider {
